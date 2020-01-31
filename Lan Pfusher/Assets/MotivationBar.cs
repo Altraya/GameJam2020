@@ -24,6 +24,8 @@ public class MotivationBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        motivation--;
+
         motivationBar.fillAmount = motivation / maxMotivation;
         if (motivation <= 0)
         {
