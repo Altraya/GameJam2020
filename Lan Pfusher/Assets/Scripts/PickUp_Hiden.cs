@@ -44,7 +44,7 @@ public class PickUp_Hiden : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         //Get space key
         bool buttonA = Input.GetKeyDown(KeyCode.Joystick1Button1);//A button from snes
@@ -76,11 +76,11 @@ public class PickUp_Hiden : MonoBehaviour
         #endregion
         #region ChangeObject
         //Action for PickUp event
-        if (Input.GetKeyUp(KeyCode.Joystick1Button5))//R button from snes
+        if (Input.GetKeyDown(KeyCode.Joystick1Button5))//R button from snes
         {
             Inventory.switchObject(true);
         }
-        else if (Input.GetKeyUp(KeyCode.Joystick1Button4))//L button from snes
+        else if (Input.GetKeyDown(KeyCode.Joystick1Button4))//L button from snes
         {
             Inventory.switchObject(false);
         }
@@ -110,7 +110,7 @@ public class PickUp_Hiden : MonoBehaviour
     {
         try
         {
-            debugInfo.text = statutPickUp.ToString() + "\n" + Inventory.displayInfoInventory() + "\nCurrent Item: " + Inventory.currentItem() + " --> " + Inventory.getInventoryQuantity(Inventory.currentItem());
+            debugInfo.text = statutPickUp.ToString() + "\n" + Inventory.displayInfoInventory() + "\nTotal Item: " + Inventory.getInventoryAllQuantity() + "\nCurrent Item: " + Inventory.currentItem() + " --> " + Inventory.getInventoryQuantity(Inventory.currentItem());
         }
         catch { }
     }
