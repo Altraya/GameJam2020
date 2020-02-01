@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public class InventoryCounter : MonoBehaviour
 {
-    public Item[] counter;
+    public int counter;
 
     // Start is called before the first frame update
     void Start()
     {
-        counter = new Item[5];
+        counter = 0;
     }
 
     // Update is called once per frame
