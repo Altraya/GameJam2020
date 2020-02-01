@@ -38,6 +38,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 3796743455
+    locked: 0
+  - name: Plateforms
+    uniqueID: 1966879427
+    locked: 0
+  - name: InterractibleGameObject
+    uniqueID: 3803279149
+    locked: 0
+  - name: Player
+    uniqueID: 138746445
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

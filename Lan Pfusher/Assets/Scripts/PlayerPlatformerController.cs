@@ -2,13 +2,16 @@
 using System.Collections;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using System;
 
 public class PlayerPlatformerController : MonoBehaviour
 {
     [HideInInspector]
     public bool facingRight = true;			// For determining which way the player is currently facing.
 
-    public float speed;            
+    public float speed;
+
+    public Animator animator;               //To do relation for animation transitions
 
     public UnityEngine.UI.Text debugText;
 
@@ -36,7 +39,7 @@ public class PlayerPlatformerController : MonoBehaviour
     {
         //Store the current horizontal input in the float moveHorizontal.
         float moveHorizontal = Input.GetAxis("Horizontal");
-        
+        animator.SetFloat("Speed", Math.Abs(moveHorizontal));
 
         //Store the current vertical input in the float moveVertical.
         float moveVertical = Input.GetAxis("Vertical");
