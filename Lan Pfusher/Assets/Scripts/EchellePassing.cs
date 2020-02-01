@@ -30,16 +30,17 @@ public class EchellePassing : MonoBehaviour
         Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
 
         if(col.gameObject.name == "Player"){
-            var dummyObjectDestPosition = DestinationToTp.gameObject.transform.position;
-            col.gameObject.transform.position = dummyObjectDestPosition;
-            var lastActiveCamera = Camera.current.gameObject;
-            
-            //yield return new WaitForSeconds(3);
-            Camera.current.gameObject.SetActive(false); //disable the previous scene camera
-            DestinationCamera.gameObject.SetActive(true); //enable the current one
-
-            //if(FlipFacingWhenArriveToTp)
+            if(Camera.current != null)
+            {
+                var dummyObjectDestPosition = DestinationToTp.gameObject.transform.position;
+                col.gameObject.transform.position = dummyObjectDestPosition;
+                var lastActiveCamera = Camera.current.gameObject;
                 
+                Camera.current.gameObject.SetActive(false); //disable the previous scene camera
+                DestinationCamera.gameObject.SetActive(true); //enable the current one
+       
+            }
+
         }
         
         

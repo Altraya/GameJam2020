@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SimplePlatform Variant 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4731675240470311931, guid: cd9fdd9b59c55884e859458811fa171d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7617681630169328506, guid: cd9fdd9b59c55884e859458811fa171d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -87,5 +92,6 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: -3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4731675240470311931, guid: cd9fdd9b59c55884e859458811fa171d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cd9fdd9b59c55884e859458811fa171d, type: 3}
