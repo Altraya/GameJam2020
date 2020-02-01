@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class MotivationBar : MonoBehaviour
 {
     public Image motivationBar;
+    public int coeff;
 
     private float maxMotivation;
     private float motivation;
@@ -16,7 +17,7 @@ public class MotivationBar : MonoBehaviour
     {
         maxMotivation = 100;
         motivation = maxMotivation;
-
+        coeff = 1;
         motivationBar.type = Image.Type.Filled;
 
     }
@@ -24,12 +25,16 @@ public class MotivationBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        motivation--;
+        motivation-=coeff;
 
         motivationBar.fillAmount = motivation / maxMotivation;
-        if (motivation <= 0)
+        if (motivation <= 50)
         {
-            //Perdu
+            motivationBar.color = Color.yellow;
+        }
+        if (motivation <= 25)
+        {
+            motivationBar.color = Color.red;
         }
     }
 }
