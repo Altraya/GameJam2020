@@ -127,6 +127,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 426840607}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &174587063 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 488654340815421827, guid: 2340b7a3b4927b44da20b25a04443981,
+    type: 3}
+  m_PrefabInstance: {fileID: 510617873}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &186534841
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +326,7 @@ PrefabInstance:
     - target: {fileID: 2886778042270243504, guid: 495c974b05a55ad40b6550d11bde8603,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -24.25
+      value: -24.69
       objectReference: {fileID: 0}
     - target: {fileID: 2886778042270243504, guid: 495c974b05a55ad40b6550d11bde8603,
         type: 3}
@@ -496,6 +502,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2101949352}
     m_Modifications:
+    - target: {fileID: 488654340815421827, guid: 2340b7a3b4927b44da20b25a04443981,
+        type: 3}
+      propertyPath: m_Name
+      value: Sous sol - Haut de lechelle - InvisibleGameObject Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 699983037296232832, guid: 2340b7a3b4927b44da20b25a04443981,
+        type: 3}
+      propertyPath: m_Name
+      value: Sous sol - Bas echelle - InvisibleGameObject Trigger
+      objectReference: {fileID: 0}
     - target: {fileID: 804222913116883533, guid: 2340b7a3b4927b44da20b25a04443981,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -554,7 +570,7 @@ PrefabInstance:
     - target: {fileID: 804222913116883533, guid: 2340b7a3b4927b44da20b25a04443981,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.21
+      value: 1.26
       objectReference: {fileID: 0}
     - target: {fileID: 3325101681448969795, guid: 2340b7a3b4927b44da20b25a04443981,
         type: 3}
@@ -566,11 +582,21 @@ PrefabInstance:
       propertyPath: DestinationCamera
       value: 
       objectReference: {fileID: 904369204}
+    - target: {fileID: 3505113756951857774, guid: 2340b7a3b4927b44da20b25a04443981,
+        type: 3}
+      propertyPath: DestinationToTp
+      value: 
+      objectReference: {fileID: 1122141378}
     - target: {fileID: 7424327500221876914, guid: 2340b7a3b4927b44da20b25a04443981,
         type: 3}
       propertyPath: DestinationCamera
       value: 
       objectReference: {fileID: 467259275}
+    - target: {fileID: 7424327500221876914, guid: 2340b7a3b4927b44da20b25a04443981,
+        type: 3}
+      propertyPath: DestinationToTp
+      value: 
+      objectReference: {fileID: 174587063}
     - target: {fileID: 7858386529965356813, guid: 2340b7a3b4927b44da20b25a04443981,
         type: 3}
       propertyPath: m_Name
@@ -1114,6 +1140,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2886778042270243504, guid: 495c974b05a55ad40b6550d11bde8603,
     type: 3}
   m_PrefabInstance: {fileID: 2886778043300271054}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1122141378 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 699983037296232832, guid: 2340b7a3b4927b44da20b25a04443981,
+    type: 3}
+  m_PrefabInstance: {fileID: 510617873}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1209292368 stripped
 Transform:
@@ -1851,7 +1883,7 @@ PrefabInstance:
     - target: {fileID: 804222913116883533, guid: 2340b7a3b4927b44da20b25a04443981,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.7900001
+      value: 0.99
       objectReference: {fileID: 0}
     - target: {fileID: 804222913116883533, guid: 2340b7a3b4927b44da20b25a04443981,
         type: 3}
@@ -1918,6 +1950,11 @@ PrefabInstance:
       propertyPath: DestinationCamera
       value: 
       objectReference: {fileID: 467259275}
+    - target: {fileID: 4103251708101408703, guid: 2340b7a3b4927b44da20b25a04443981,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7424327500221876914, guid: 2340b7a3b4927b44da20b25a04443981,
         type: 3}
       propertyPath: DestinationCamera
@@ -1927,6 +1964,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Echelle ecran principal
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218536622441931269, guid: 2340b7a3b4927b44da20b25a04443981,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2340b7a3b4927b44da20b25a04443981, type: 3}
