@@ -33,8 +33,8 @@ public class EchellePassing : MonoBehaviour
             var lastActiveCamera = Camera.current.gameObject;
             
             //yield return new WaitForSeconds(3);
-            //Camera.current.gameObject.SetActive(false); //disable the previous scene camera
-            //DestinationCamera.gameObject.SetActive(true); //enable the current one
+            Camera.current.gameObject.SetActive(false); //disable the previous scene camera
+            DestinationCamera.gameObject.SetActive(true); //enable the current one
         }
         
         
