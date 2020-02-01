@@ -100,6 +100,12 @@ public static class Inventory
         }
     }
 
+    public static string getName(int valueToSearch)
+    {
+        string name = inventory.ElementAt(valueToSearch).Key;
+        return name;
+    }
+
     public static int getInventoryAllQuantity()
     {
         int i = 0;
