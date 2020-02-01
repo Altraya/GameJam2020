@@ -6,13 +6,7 @@ using UnityEngine;
 
 public static class Inventory
 {
-    /*
-    public const string brosseADent = "brosse a dent";
-    public const string vase = "Vase1";
-    public const string ball = "ball";
-    public const string cube = "cube";
-    public const string filDentaire = "fil dentaire";
-    */
+
     private static Dictionary<Sprite, int> inventory = new Dictionary<Sprite, int>();//Sprite-quantity
     private static Dictionary<string, Sprite> inventoryName = new Dictionary<string, Sprite>();//Name-Sprite
     private static Sprite lastElement;
