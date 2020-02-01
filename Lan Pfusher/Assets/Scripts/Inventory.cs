@@ -157,7 +157,7 @@ public static class Inventory
 
     public static void switchObject(bool right = true)
     {
-        if (getInventoryAllQuantity() > 1)
+        if (getInventoryAllQuantity() >= 1)
         {
             int index = getIndex(currentItem());
             if (right == true)
