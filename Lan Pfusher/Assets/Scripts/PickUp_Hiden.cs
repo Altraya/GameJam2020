@@ -110,7 +110,7 @@ public class PickUp_Hiden : MonoBehaviour
     {
         try
         {
-            debugInfo.text = statutPickUp.ToString() + "\n" + Inventory.displayInfoInventory() + "\nCurrent Item: " + Inventory.currentItem() + " --> " + Inventory.getInventoryQuantity(Inventory.currentItem());
+            debugInfo.text = statutPickUp.ToString() + "\n" + Inventory.displayInfoInventory() + "\nTotal Item: " + Inventory.getInventoryAllQuantity() + "\nCurrent Item: " + Inventory.currentItem() + " --> " + Inventory.getInventoryQuantity(Inventory.currentItem());
         }
         catch { }
     }

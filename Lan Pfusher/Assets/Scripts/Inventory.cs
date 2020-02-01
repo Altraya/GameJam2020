@@ -6,10 +6,10 @@ using UnityEngine;
 
 public static class Inventory
 {
-    private static int maxInventory = 3;
+    //Public
+    public static int maxInventory = 3;
+    //Private
     private static Dictionary<string, int> inventory = new Dictionary<string, int>();//Sprite-quantity
-    //private static Dictionary<string, Sprite> inventoryName = new Dictionary<string, Sprite>();//Name-Sprite
-    private static string lastElement;
     private static string currentElement;
 
     public static bool addObjectInInventory(string name)
@@ -43,6 +43,10 @@ public static class Inventory
         if (getInventoryQuantity(name) > 0)
         {
             inventory[name]--;
+            if(inventory[name] == 0)
+            {
+                switchObject(true);
+            }
         }
     }
 
@@ -68,6 +72,34 @@ public static class Inventory
         }
     }
 
+    public static int getIndex(string name)
+    {
+        int index = 0;
+        foreach (var item in inventory)
+        {
+            if (item.Key.ToString() == name)
+            {
+                return index;
+            }
+            index++;
+        }
+        return index;
+    }
+
+    public static void setIndex(int index)
+    {
+        int index2 = 0;
+        foreach (var item in inventory)
+        {
+            if (index2 == index)
+            {
+                currentElement = item.Key.ToString();
+                break;
+            }
+            index2++;
+        }
+    }
+
     public static int getInventoryAllQuantity()
     {
         int i = 0;
@@ -78,7 +110,7 @@ public static class Inventory
         return i;
     }
 
-    public static void switchObject(bool right = true)
+    public static void switchObject_old(bool right = true)
     {
         int index = 0;
         int nextIndex = 0;
@@ -86,7 +118,7 @@ public static class Inventory
         {
             if (right == true)
             {
-                if (item.Key == currentElement)
+                if (item.Key == currentElement && getInventoryQuantity(item.Key) > 0 )
                 {
                     nextIndex = index + 1;
                     if (nextIndex > inventory.Count - 1)
@@ -99,7 +131,7 @@ public static class Inventory
             }
             else
             {
-                if (item.Key == currentElement)
+                if (item.Key == currentElement && getInventoryQuantity(item.Key) > 0 )
                 {
                     nextIndex = index - 1;
                     if (nextIndex < 0)
@@ -123,48 +155,32 @@ public static class Inventory
         }
     }
 
-    public static void switchObject_old(bool right = true)
+    public static void switchObject(bool right = true)
     {
-        int index = 0;
-        int nextIndex = 0;
-        foreach (var sprite in inventory)
+        if (getInventoryAllQuantity() > 1)
         {
+            int index = getIndex(currentItem());
             if (right == true)
             {
-                if (sprite.Key == currentElement)
-                {
-                    nextIndex = index + 1;
-                    if (nextIndex > inventory.Count - 1)
-                    {
-                        nextIndex = 0;
-                    }
-                    break;
-                }
                 index++;
+                if (index > inventory.Count - 1)
+                {
+                    index = 0;
+                }
             }
             else
             {
-                if (sprite.Key == currentElement)
-                {
-                    nextIndex = index - 1;
-                    if (nextIndex <= 0)
-                    {
-                        nextIndex = inventory.Count - 1;
-                    }
-                    break;
-                }
                 index--;
+                if (index < 0)
+                {
+                    index = inventory.Count - 1;
+                }
             }
-        }
-        index = 0;
-        foreach (var sprite in inventory)
-        {
-            if (index == nextIndex)
+            setIndex(index);
+            if (getInventoryQuantity(currentItem()) == 0)
             {
-                currentElement = sprite.Key;
-                break;
+                switchObject(right);
             }
-            index++;
         }
     }
 
