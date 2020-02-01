@@ -25,8 +25,3 @@ public class InventoryCounter : MonoBehaviour
     }
 }
 
-public class Item
-{
-    public int counter;
-    public string name;
-}
