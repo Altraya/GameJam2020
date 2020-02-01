@@ -26,13 +26,18 @@ public class EchellePassing : MonoBehaviour
     {
         //here the collider is normally the player
         Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
+
         if(col.gameObject.name == "Player"){
             var dummyObjectDestPosition = DestinationToTp.gameObject.transform.position;
             col.gameObject.transform.position = dummyObjectDestPosition;
+            var lastActiveCamera = Camera.current.gameObject;
+            
             //yield return new WaitForSeconds(3);
             //Camera.current.gameObject.SetActive(false); //disable the previous scene camera
             //DestinationCamera.gameObject.SetActive(true); //enable the current one
         }
+        
+        
         
 
     }
