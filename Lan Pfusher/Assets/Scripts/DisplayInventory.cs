@@ -35,7 +35,7 @@ public class DisplayInventory : MonoBehaviour
             var go = transform.GetChild(i).gameObject;
             string name = go.name;
             InventoryCounter itemCounter = go.GetComponentInChildren(typeof(InventoryCounter)) as InventoryCounter;
-            itemCounter.counter = 3;// Inventory.getInventoryQuantity(name);
+            itemCounter.counter = Inventory.getInventoryQuantity(name);
             totalItems += itemCounter.counter;
         }
         
