@@ -451,9 +451,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1385663977}
   - component: {fileID: 1385663976}
-  - component: {fileID: 1385663980}
   - component: {fileID: 1385663979}
   - component: {fileID: 1385663978}
+  - component: {fileID: 1385663980}
   m_Layer: 0
   m_Name: Gamer
   m_TagString: GamerPNJ
@@ -473,7 +473,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f9a4252c5c7a864892052a9e83338a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1385663980}
+  animator: {fileID: 0}
+  errorType: 0
   isrepairing: 0
 --- !u!4 &1385663977
 Transform:
@@ -576,7 +577,7 @@ Animator:
   m_GameObject: {fileID: 1385663975}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a2c87724a28b2b94f82d8dad20513189, type: 2}
+  m_Controller: {fileID: 9100000, guid: 70e1555f5e195f64ca22ea7ce01b074f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

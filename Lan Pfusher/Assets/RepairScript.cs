@@ -17,16 +17,22 @@ public class RepairScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        GamerScript gs = (currentGamer.GetComponent(typeof(GamerScript)) as GamerScript);
-        int errorType = gs.errorType;
-        if (errorType >= 0)
+        if (currentGamer != null)
         {
-            if (Inventory.getInventoryQuantity(Inventory.getName(errorType)) > 0)
+            GamerScript gs = (currentGamer.GetComponent(typeof(GamerScript)) as GamerScript);
+            int errorType = gs.errorType;
+            if (errorType >= 0)
             {
-                if (Input.GetKey(KeyCode.Joystick1Button1))
+                if (Inventory.getInventoryQuantity(Inventory.getName(errorType)) > 0)
                 {
-                    gs.Repairing(true);
+                    if (Input.GetKey(KeyCode.Joystick1Button1))
+                    {
+                        gs.Repairing(true);
+                    }
+                    else
+                    {
+                        gs.Repairing(false);
+                    }
                 }
                 else
                 {
@@ -38,10 +44,7 @@ public class RepairScript : MonoBehaviour
                 gs.Repairing(false);
             }
         }
-        else
-        {
-            gs.Repairing(false);
-        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
