@@ -6,7 +6,6 @@ using UnityEngine;
 
 public static class Inventory
 {
-
     private static Dictionary<Sprite, int> inventory = new Dictionary<Sprite, int>();//Sprite-quantity
     private static Dictionary<string, Sprite> inventoryName = new Dictionary<string, Sprite>();//Name-Sprite
     private static Sprite lastElement;
@@ -108,22 +107,38 @@ public static class Inventory
         return i;
     }
 
-    public static void switchObject()
+    public static void switchObject(bool right = true)
     {
         int index = 0;
         int nextIndex = 0;
         foreach (var sprite in inventory)
         {
-            if(sprite.Key == currentElement)
+            if (right == true)
             {
-                nextIndex = index + 1;
-                if(nextIndex > inventory.Count-1)
+                if (sprite.Key == currentElement)
                 {
-                    nextIndex = 0;
+                    nextIndex = index + 1;
+                    if (nextIndex > inventory.Count - 1)
+                    {
+                        nextIndex = 0;
+                    }
+                    break;
                 }
-                break;
+                index++;
             }
-            index++;
+            else
+            {
+                if (sprite.Key == currentElement)
+                {
+                    nextIndex = index - 1;
+                    if (nextIndex <= 0)
+                    {
+                        nextIndex = inventory.Count - 1;
+                    }
+                    break;
+                }
+                index--;
+            }
         }
         index = 0;
         foreach (var sprite in inventory)

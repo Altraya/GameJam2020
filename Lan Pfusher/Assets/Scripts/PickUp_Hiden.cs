@@ -10,10 +10,10 @@ public class PickUp_Hiden : MonoBehaviour
     private GameObject currentObject;
     private GameObject objects;
     private SpriteRenderer spriteR;
+
     StatutPickUp statutPickUp = StatutPickUp.PickUpNotPossible;
     //Public entry
     public Text debugInfo;
-
 
     enum StatutPickUp
     {
@@ -33,36 +33,47 @@ public class PickUp_Hiden : MonoBehaviour
     void FixedUpdate()
     {
         //Get space key
-        bool down = Input.GetKeyDown(KeyCode.Joystick1Button1);//A button from snes
+        bool buttonA = Input.GetKeyDown(KeyCode.Joystick1Button1);//A button from snes
 
         #region PickUp
         //Action for PickUp event
-        if (statutPickUp == StatutPickUp.PickUpIsPossible && down == true)
+        if (statutPickUp == StatutPickUp.PickUpIsPossible && buttonA == true)
         {
             //PickUp enabled
             statutPickUp = StatutPickUp.IsPickUp;
-            //objects = GameObject.Find("PickUp");
-            //currentObject.enabled = !objects.GetComponent<Renderer>().enabled;
             Destroy(currentObject);
             spriteR = currentObject.GetComponent<SpriteRenderer>();//myFirstImage;
-            //imageCurrentObjectPickUp.sprite = spriteR.sprite;// Resources.LoadAll<Sprite>(spriteNames);
-            //imageCurrentObjectPickUp.enabled = true;
             statutPickUp = StatutPickUp.PickUpNotPossible;
             Inventory.addObjectInInventory(spriteR.sprite);
-            
-            //Change image of bommy
-            //boomy.GetComponent<SpriteRenderer>().sprite = myFirstImage;
         }
-        else if (statutPickUp == StatutPickUp.IsPickUp&& down == true)
+
+        else if (statutPickUp == StatutPickUp.IsPickUp && buttonA == true)
         {
             //PickUp disabled
             statutPickUp = StatutPickUp.PickUpIsPossible;
         }
         #endregion
+        #region Drop
+        //Action for PickUp event
+        if (Input.GetKeyUp(KeyCode.Joystick1Button0))//X button from snes
+        {
+            Inventory.removeObjectInInventory(Inventory.lastSprite());
+        }
+        #endregion
+        #region ChangeObject
+        //Action for PickUp event
+        if (Input.GetKeyUp(KeyCode.Joystick1Button2))//X button from snes
+        {
+            Inventory.switchObject(true);
+        }
+        else if (Input.GetKeyUp(KeyCode.Joystick1Button3))//X button from snes
+        {
+            Inventory.switchObject(false);
+        }
+        #endregion
         //Display debug
         displayInfoDebug();
     }
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -85,7 +96,7 @@ public class PickUp_Hiden : MonoBehaviour
     {
         try
         {
-            debugInfo.text =  statutPickUp.ToString() + "\n" + Inventory.getInventoryQuantity("Vase1").ToString();
+            debugInfo.text = statutPickUp.ToString() + "\n" + Inventory.lastSprite().name;
         }
         catch { }
     }
