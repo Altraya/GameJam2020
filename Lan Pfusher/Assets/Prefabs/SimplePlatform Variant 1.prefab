@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 985421837596525749, guid: cd9fdd9b59c55884e859458811fa171d,
         type: 3}
       propertyPath: m_Name
-      value: SimplePlatform Variant
+      value: SimplePlatform Variant 1
       objectReference: {fileID: 0}
     - target: {fileID: 7617681630169328506, guid: cd9fdd9b59c55884e859458811fa171d,
         type: 3}
@@ -76,6 +76,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 0.38781524
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096188628759723323, guid: cd9fdd9b59c55884e859458811fa171d,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1966879427
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096188628759723323, guid: cd9fdd9b59c55884e859458811fa171d,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: -3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd9fdd9b59c55884e859458811fa171d, type: 3}
