@@ -30,21 +30,6 @@ MonoBehaviour:
   DestinationToTp: {fileID: 860767678830316379}
   DestinationCamera: {fileID: 0}
   FlipFacingWhenArriveToTp: 0
---- !u!114 &8739054732763888385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 860767678830316379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4001d4762d12ea448b7679a380b29dd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DestinationToTp: {fileID: 0}
-  DestinationCamera: {fileID: 0}
-  FlipFacingWhenArriveToTp: 0
 --- !u!1 &1864423612108565388
 GameObject:
   m_ObjectHideFlags: 0
@@ -79,21 +64,6 @@ Transform:
   m_Father: {fileID: 804222913116883533}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7458744457159146127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5543210014910652129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4001d4762d12ea448b7679a380b29dd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DestinationToTp: {fileID: 0}
-  DestinationCamera: {fileID: 0}
-  FlipFacingWhenArriveToTp: 0
 --- !u!1 &7858386529965356813
 GameObject:
   m_ObjectHideFlags: 0
