@@ -6,53 +6,44 @@ using UnityEngine;
 
 public static class Inventory
 {
+    private static int maxInventory = 3;
+    private static Dictionary<string, int> inventory = new Dictionary<string, int>();//Sprite-quantity
+    //private static Dictionary<string, Sprite> inventoryName = new Dictionary<string, Sprite>();//Name-Sprite
+    private static string lastElement;
+    private static string currentElement;
 
-    private static Dictionary<Sprite, int> inventory = new Dictionary<Sprite, int>();//Sprite-quantity
-    private static Dictionary<string, Sprite> inventoryName = new Dictionary<string, Sprite>();//Name-Sprite
-    private static Sprite lastElement;
-    private static Sprite currentElement;
-
-    public static void addObjectInInventory(Sprite sprite)
+    public static bool addObjectInInventory(string name)
     {
         if(getInventoryAllQuantity() == 0)
         {
-            currentElement = sprite;
+            currentElement = name;
         }
 
-        if (inventory.ContainsKey(sprite) == false)
+        if (inventory.ContainsKey(name) == false)
         {
-            inventory.Add(sprite, 1);
-            if (inventoryName.ContainsValue(sprite) == false)
-            {
-                inventoryName.Add(sprite.name, sprite);
-            }
+            inventory.Add(name, 0);
+            return true;
         }
         else
         {
-            inventory[sprite]++;
-        }
-    }
-
-    public static void removeObjectInInventory(Sprite sprite)
-    {
-        if (inventory.ContainsKey(sprite) == true && inventory[sprite] == 1)
-        {
-            inventory.Remove(sprite);
-            inventoryName.Remove(getNameBySprite(sprite));
-            if(sprite == currentElement)
+            if (getInventoryAllQuantity() < maxInventory)
             {
-                switchObject();
+                inventory[name]++;
+                return true;
             }
-        }
-        else
-        {
-            inventory[sprite]--;
+            else
+            {
+                return false;
+            }
         }
     }
 
     public static void removeObjectInInventory(string name)
     {
-        removeObjectInInventory(inventoryName[name]);
+        if (getInventoryQuantity(name) > 0)
+        {
+            inventory[name]--;
+        }
     }
 
     public static string displayInfoInventory()
@@ -60,42 +51,21 @@ public static class Inventory
         string text = "";
         foreach(var sprite in inventory)
         {
-            text += sprite.Key.name + ":" + sprite.Value.ToString() + "\n";
+            text += sprite.Key.ToString() + ":" + sprite.Value.ToString() + "\n";
         }
         return text;
     }
 
     public static int getInventoryQuantity(string name)
     {
-        if(inventoryName.ContainsKey(name) == true && inventory.Count != 0)
+        if(inventory.Count != 0)
         {
-            var test = inventoryName[name];
-            return inventory[test];
+            return inventory[name];
         }
         else
         {
             return 0;
         }
-    }
-
-    public static string KeyByValue(Dictionary<string,Sprite > dict, Sprite val)
-    {
-        string key = null;
-        foreach (KeyValuePair<string, Sprite> pair in dict)
-        {
-            if (pair.Value == val)
-            {
-                key = pair.Key;
-                break;
-            }
-        }
-        return key;
-    }
-
-    private static string getNameBySprite(Sprite sprite)
-    {
-        var value = KeyByValue(inventoryName, sprite);
-        return value;
     }
 
     public static int getInventoryAllQuantity()
@@ -108,22 +78,38 @@ public static class Inventory
         return i;
     }
 
-    public static void switchObject()
+    public static void switchObject(bool right = true)
     {
         int index = 0;
         int nextIndex = 0;
-        foreach (var sprite in inventory)
+        foreach (var item in inventory)
         {
-            if(sprite.Key == currentElement)
+            if (right == true)
             {
-                nextIndex = index + 1;
-                if(nextIndex > inventory.Count-1)
+                if (item.Key == currentElement)
                 {
-                    nextIndex = 0;
+                    nextIndex = index + 1;
+                    if (nextIndex > inventory.Count - 1)
+                    {
+                        nextIndex = 0;
+                    }
+                    break;
                 }
-                break;
+                index++;
             }
-            index++;
+            else
+            {
+                if (item.Key == currentElement)
+                {
+                    nextIndex = index - 1;
+                    if (nextIndex < 0)
+                    {
+                        nextIndex = inventory.Count - 1;
+                    }
+                    break;
+                }
+                index++;
+            }
         }
         index = 0;
         foreach (var sprite in inventory)
@@ -137,7 +123,52 @@ public static class Inventory
         }
     }
 
-    public static Sprite lastSprite()
+    public static void switchObject_old(bool right = true)
+    {
+        int index = 0;
+        int nextIndex = 0;
+        foreach (var sprite in inventory)
+        {
+            if (right == true)
+            {
+                if (sprite.Key == currentElement)
+                {
+                    nextIndex = index + 1;
+                    if (nextIndex > inventory.Count - 1)
+                    {
+                        nextIndex = 0;
+                    }
+                    break;
+                }
+                index++;
+            }
+            else
+            {
+                if (sprite.Key == currentElement)
+                {
+                    nextIndex = index - 1;
+                    if (nextIndex <= 0)
+                    {
+                        nextIndex = inventory.Count - 1;
+                    }
+                    break;
+                }
+                index--;
+            }
+        }
+        index = 0;
+        foreach (var sprite in inventory)
+        {
+            if (index == nextIndex)
+            {
+                currentElement = sprite.Key;
+                break;
+            }
+            index++;
+        }
+    }
+
+    public static string currentItem()
     {
         return currentElement;
     }
