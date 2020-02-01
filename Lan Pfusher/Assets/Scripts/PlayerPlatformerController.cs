@@ -71,7 +71,7 @@ public class PlayerPlatformerController : MonoBehaviour
         //debugText.text = rb2d.velocity.x.ToString();
     }
 
-    void Flip()
+    public void Flip()
     {
         facingRight = !facingRight;
         Vector3 theScale = transform.localScale;
