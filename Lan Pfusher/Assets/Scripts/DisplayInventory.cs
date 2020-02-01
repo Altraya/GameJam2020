@@ -29,30 +29,18 @@ public class DisplayInventory : MonoBehaviour
             string name = go.name;
             InventoryCounter itemCounter = go.GetComponentInChildren(typeof(InventoryCounter)) as InventoryCounter;
             itemCounter.counter = Inventory.getInventoryQuantity(name);
-            if (Inventory.getInventoryAllQuantity() > 0)
+            string selectedItem = Inventory.currentItem();
+
+            var image = go.GetComponentInChildren(typeof(Image)) as Image;
+            var selected = image.transform.GetChild(0).GetComponent(typeof(Image)) as Image;
+            if (selectedItem.ToUpper().Contains(name.ToUpper()))
             {
-                string selectedItem = Inventory.currentItem();
-
-                var image = go.GetComponentInChildren(typeof(Image)) as Image;
-                var selected = image.transform.GetChild(0).GetComponent(typeof(Image)) as Image;
-                //if (selected.name.ToUpper().Contains("SELECTION"))
-                //{
-                    if (selectedItem.ToUpper().Contains(name.ToUpper()))
-                    {
-                        selected.enabled = true;
-                    }
-                    else
-                    {
-                        selected.enabled = false;
-                    }
-                //}
-
+                selected.enabled = true;
+            }
+            else
+            {
+                selected.enabled = false;
             }
         }
-
-
-
     }
-
-
 }

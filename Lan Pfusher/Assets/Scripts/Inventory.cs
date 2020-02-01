@@ -110,53 +110,12 @@ public static class Inventory
         return i;
     }
 
-    public static void switchObject_old(bool right = true)
-    {
-        int index = 0;
-        int nextIndex = 0;
-        foreach (var item in inventory)
-        {
-            if (right == true)
-            {
-                if (item.Key == currentElement && getInventoryQuantity(item.Key) > 0 )
-                {
-                    nextIndex = index + 1;
-                    if (nextIndex > inventory.Count - 1)
-                    {
-                        nextIndex = 0;
-                    }
-                    break;
-                }
-                index++;
-            }
-            else
-            {
-                if (item.Key == currentElement && getInventoryQuantity(item.Key) > 0 )
-                {
-                    nextIndex = index - 1;
-                    if (nextIndex < 0)
-                    {
-                        nextIndex = inventory.Count - 1;
-                    }
-                    break;
-                }
-                index++;
-            }
-        }
-        index = 0;
-        foreach (var sprite in inventory)
-        {
-            if (index == nextIndex)
-            {
-                currentElement = sprite.Key;
-                break;
-            }
-            index++;
-        }
-    }
-
     public static void switchObject(bool right = true)
     {
+        if (getInventoryAllQuantity() == 0)
+        {
+            currentElement = "";
+        }
         if (getInventoryAllQuantity() >= 1)
         {
             int index = getIndex(currentItem());
