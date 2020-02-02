@@ -22,6 +22,13 @@ public class InventoryCounter : MonoBehaviour
         {
             count.text = counter.ToString();
         }
+        
+        Text totalCount = transform.parent.GetComponentInChildren(typeof(Text)) as Text;
+
+        if (totalCount.name.ToUpper().Contains("TOTALCOUNTER"))
+        {
+            totalCount.text = Inventory.getInventoryAllQuantity().ToString() + "/" + Inventory.maxInventory ;
+        }
     }
 }
 
