@@ -50,6 +50,8 @@ MonoBehaviour:
   errorType: -1
   isrepairing: 0
   repaired: 0
+  typeOfGamer: 0
+  MotivationHandler: {fileID: 0}
 --- !u!212 &1439644436116789823
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -86,8 +88,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -491688147
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: -6868047885766006693, guid: f6b2d4c408a7b77498dbae7c3505ea7f,
     type: 3}
