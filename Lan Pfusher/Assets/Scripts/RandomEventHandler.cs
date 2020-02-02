@@ -7,9 +7,9 @@ public class RandomEventHandler : MonoBehaviour
 {
 
     private List<GameObject> gamers;
-    public int TimeRampupDifficultyIncreaseInSecond = 3; //time between problems appear
-    public int TimeBetweenIncreasedOfSimultaneousProblems = 15; //default 15sec
-    public int RealTimerBetweenAction;
+    public int TimeRampupDifficultyIncreaseInSecond = 30; //time between problems appear
+    public int TimeBetweenIncreasedOfSimultaneousProblems = 40; //default 15sec
+    public int RealTimerBetweenAction = 15; //default value correspond to 1st call
     public int NumberOfSimultaneousProblem = 1;
     private bool once;
 
@@ -18,7 +18,6 @@ public class RandomEventHandler : MonoBehaviour
     {
         try
         {
-            RealTimerBetweenAction = TimeRampupDifficultyIncreaseInSecond;
             gamers = new List<GameObject>();
             gamers.AddRange(GameObject.FindGameObjectsWithTag("GamerPNJ"));
             once = true;
@@ -30,7 +29,6 @@ public class RandomEventHandler : MonoBehaviour
             
         }
     }
-        int i = 0;
 
     // Update is called once per frame
     void Update()
@@ -69,8 +67,15 @@ public class RandomEventHandler : MonoBehaviour
             yield return new WaitForSeconds(RealTimerBetweenAction);
 
             //increase difficulty
-            
-            RealTimerBetweenAction -= TimeRampupDifficultyIncreaseInSecond; //here we will decrease time between events (so difficulty increase)               
+            if(RealTimerBetweenAction > 1)
+            {
+                RealTimerBetweenAction -= TimeRampupDifficultyIncreaseInSecond; //here we will decrease time between events (so difficulty increase) 
+            }
+            else
+            {
+                RealTimerBetweenAction = 1;
+            }
+                          
         
 
             //only get gamers whom have not any error yet
