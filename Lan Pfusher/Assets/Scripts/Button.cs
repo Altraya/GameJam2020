@@ -9,7 +9,7 @@ public class Button : MonoBehaviour
 
     public void play()
     {
-        SceneManager.LoadScene("MichMich");
+        SceneManager.LoadScene("Game");
     }
 
     public void End()

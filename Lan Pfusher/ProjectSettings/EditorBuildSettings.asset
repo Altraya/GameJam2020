@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Title_menu.unity
     guid: 23e80e04954b6cc4699128115e3e0479
   - enabled: 1
-    path: Assets/Scenes/MichMich.unity
-    guid: 65599fc9c08df894582f1ae9b42aa2bb
+    path: Assets/Scenes/Game.unity
+    guid: 93e4577672d0dfc49bf19d93e5d90a25
   m_configObjects: {}
