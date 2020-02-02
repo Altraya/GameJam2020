@@ -69,7 +69,7 @@ public class RandomEventHandler : MonoBehaviour
             //increase difficulty
             if(RealTimerBetweenAction > 1)
             {
-                RealTimerBetweenAction -= TimeRampupDifficultyIncreaseInSecond; //here we will decrease time between events (so difficulty increase) 
+                RealTimerBetweenAction = TimeRampupDifficultyIncreaseInSecond; //here we will decrease time between events (so difficulty increase) 
             }
             else
             {
