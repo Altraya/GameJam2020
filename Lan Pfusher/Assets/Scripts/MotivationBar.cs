@@ -55,15 +55,17 @@ public class MotivationBar : MonoBehaviour
                 motivation = gamerMotivationScript.motivation;
                 maxMotivation = gamerMotivationScript.maxMotivation;
                 totalMotivation += motivation;
-                totalMaxMotivation += totalMaxMotivation;
+                totalMaxMotivation += maxMotivation;
             }
             
         }
         motivationBar.fillAmount = totalMotivation / totalMaxMotivation;
         
-        float half = totalMaxMotivation/2;
+        
         float quart = totalMaxMotivation/4;
-        if (totalMotivation <= half && totalMotivation > quart) //50%
+        float threeQuart = totalMaxMotivation * 3;
+
+        if (totalMotivation <= threeQuart && totalMotivation > quart) //50%
         {
             motivationBar.color = Color.yellow;
         }
