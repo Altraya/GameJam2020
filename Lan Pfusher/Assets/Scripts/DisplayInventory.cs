@@ -39,7 +39,7 @@ public class DisplayInventory : MonoBehaviour
 
                 var image = go.GetComponentInChildren(typeof(Image)) as Image;
                 var selected = image.transform.GetChild(0).GetComponent(typeof(Image)) as Image;
-                if (selectedItem.ToUpper().Contains(name.ToUpper()))
+                if (selectedItem.ToUpper().Contains(name.ToUpper()) && itemCounter.counter > 0)
                 {
                     selected.enabled = true;
                 }
