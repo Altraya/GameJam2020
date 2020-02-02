@@ -4,9 +4,9 @@ using System.Collections;
 /// <summary>
 /// Création d'effets sonores en toute simplicité
 /// </summary>
+[RequireComponent(typeof(AudioSource))]
 public class SoundEffectsHelper : MonoBehaviour
 {
-
     /// <summary>
     /// Singleton
     /// </summary>
@@ -14,6 +14,7 @@ public class SoundEffectsHelper : MonoBehaviour
 
     public AudioClip SoundEffect_Non;
     public AudioClip SoundEffect_ChangementObjet;
+    public AudioClip SoundEffect_ValiderTouche;
     public AudioClip SoundEffect_ChangementTouche;
     public AudioClip SoundEffect_Enervement;
     public AudioClip SoundEffect_Escalier;

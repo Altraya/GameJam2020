@@ -9,14 +9,20 @@ public class Button : MonoBehaviour
 
     public void play()
     {
+        //SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_ValiderTouche);
         SceneManager.LoadScene("Game");
     }
 
     public void End()
     {
+        //SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_ValiderTouche);
         Application.Quit();
     }
 
+    public void leave()
+    {
+        SceneManager.LoadScene("Title_menu");
+    }
     public void resume()
     {
         this.GetComponentInParent<Canvas>().enabled = false;

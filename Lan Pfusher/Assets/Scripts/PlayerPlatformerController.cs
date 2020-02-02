@@ -49,8 +49,15 @@ public class PlayerPlatformerController : MonoBehaviour
         Vector2 horizontalMovement = new Vector2(moveHorizontal * speed, rb2d.velocity.y );
 
         rb2d.velocity = horizontalMovement;
-
-  
+        if (moveHorizontal != 0)
+        {
+            //SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_MarcheRapide);
+        }
+        else if (moveHorizontal == 0)
+        {
+            //SoundEffectsHelper.Instance.StopSound();
+            //SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_MarcheRapide);
+        }
         if (moveHorizontal < 0 && facingRight || moveHorizontal > 0 && !facingRight)
         {
             Flip();
