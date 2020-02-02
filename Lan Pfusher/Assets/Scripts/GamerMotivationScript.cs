@@ -39,6 +39,10 @@ public class GamerMotivationScript : MonoBehaviour
             {
                 motivation -= coeff;
             }
+            else
+            {
+                motivation = 0;
+            }
         }       
     }
 

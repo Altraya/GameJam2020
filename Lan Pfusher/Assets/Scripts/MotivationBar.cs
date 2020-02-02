@@ -63,7 +63,7 @@ public class MotivationBar : MonoBehaviour
         
         
         float quart = totalMaxMotivation/4;
-        float threeQuart = totalMaxMotivation * 3;
+        float threeQuart = quart * 3;
 
         if (totalMotivation <= threeQuart && totalMotivation > quart) //50%
         {
