@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Button : MonoBehaviour
 {
-    
+
     public void play()
     {
         SceneManager.LoadScene("MichMich");
@@ -17,10 +17,9 @@ public class Button : MonoBehaviour
         Application.Quit();
     }
 
-    public void resume(Canvas canvas)
+    public void resume()
     {
-
-        canvas.enabled = false;
+        this.GetComponentInParent<Canvas>().enabled = false;
         Time.timeScale = 1;
     }
 }

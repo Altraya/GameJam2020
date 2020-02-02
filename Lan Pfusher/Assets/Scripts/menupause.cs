@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class menupause : MonoBehaviour
 {
-    public Canvas pausemenu;
+    public Canvas canvas;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,9 +14,10 @@ public class menupause : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Joystick1Button9))
+        if (canvas.isActiveAndEnabled == false && Input.GetKeyDown(KeyCode.Joystick1Button9))
         {
-            pausemenu.enabled = true;
+            //this.GetComponentInParent<Canvas>().enabled = true;
+            canvas.enabled = true;
             Time.timeScale = 0;
         }
     }
