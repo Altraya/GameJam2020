@@ -50,6 +50,14 @@ public static class Inventory
         }
     }
 
+    public static void ClearInventory()
+    {
+        for(int i =0; i < inventory.Count - 1; i ++)
+        {
+            inventory[inventory.ElementAt(i).Key] = 0;
+        }
+    }
+
     public static string displayInfoInventory()
     {
         string text = "";

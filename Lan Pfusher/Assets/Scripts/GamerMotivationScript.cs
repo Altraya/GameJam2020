@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GamerMotivationScript : MonoBehaviour
 {
@@ -88,6 +89,7 @@ public class GamerMotivationScript : MonoBehaviour
             else
             {
                 motivation = 0;
+                SceneManager.LoadScene("GameOver");
             }
         }       
     }

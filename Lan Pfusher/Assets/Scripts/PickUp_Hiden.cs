@@ -39,6 +39,8 @@ public class PickUp_Hiden : MonoBehaviour
         Inventory.addObjectInInventory("Tour");
         Inventory.addObjectInInventory("Cable réseau");
         //Inventory.addObjectInInventory("Switch");
+
+        Inventory.ClearInventory();
     }
 
     // Update is called once per frame

@@ -84,6 +84,8 @@ public class GamerScript : MonoBehaviour
 
 public enum TypeOfGamer {
     CHILL,
+    NORMAL,
     DECK,
-    NORMAL
+    VALENTIN
+    
 }
