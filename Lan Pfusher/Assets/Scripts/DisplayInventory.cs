@@ -27,7 +27,7 @@ public class DisplayInventory : MonoBehaviour
         {
             var go = transform.GetChild(i).gameObject;
             string name = go.name;
-            if (name.Contains("BG"))
+            if (name.Contains("BG") || name.ToUpper().Contains("TOTALCOUNTER"))
             {
 
             }

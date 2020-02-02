@@ -412,6 +412,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6830f779a7615bb489fd74e4fc61898b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TimeRampupDifficultyIncreaseInSecond: 3
+  RealTimerBetweenAction: 0
+  NumberOfSimultaneousProblem: 1
 --- !u!4 &541923730
 Transform:
   m_ObjectHideFlags: 0

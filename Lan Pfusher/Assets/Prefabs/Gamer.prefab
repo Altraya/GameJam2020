@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d22dc0047b34ed54cacbd71378aa4992, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 1439644436116789816}
   errorType: 0
   isrepairing: 0
   repaired: 0

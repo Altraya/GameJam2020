@@ -11,17 +11,33 @@ public class ScoreScript : MonoBehaviour
 
     public Text ScoreText;
 
+    public bool Playing;
+
     // Start is called before the first frame update
     void Start()
     {
-        Score = 0;
-        StartTime = Time.time;
+        ResetScore();
+        Playing = true;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        Score = (int)(Time.time - StartTime);
-        ScoreText.text = Score.ToString();
+        if (Playing)
+        {
+            Score = (int)(Time.time - StartTime);
+            ScoreText.text = Score.ToString();
+        }
+        else
+        {
+
+        }
+
+    }
+
+    public void ResetScore()
+    {
+        Score = 0;
+        StartTime = Time.time;
     }
 }
