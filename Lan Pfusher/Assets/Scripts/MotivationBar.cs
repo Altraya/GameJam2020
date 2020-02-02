@@ -39,19 +39,21 @@ public class MotivationBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        totalMotivation = 100;
-        totalMaxMotivation = 100;
+        totalMotivation = 0;
+        totalMaxMotivation = 0;
         //TODO maybe it's to much to call that each frame, but ... you know... sometimes it happens
         //we need to sum all motivation of gamers tohave our motivation bar accurate
         foreach(GameObject gamer in gamers){
             var gamerScript = gamer.GetComponent(typeof(GamerScript)) as GamerScript;
+            var gamerMotivationScript = gamer.GetComponent(typeof(GamerMotivationScript)) as GamerMotivationScript;
+            gamerMotivationScript.TypeOfGamer = gamerScript.TypeOfGamer;
 
             float motivation = 100;
             float maxMotivation = 100;
-            if(gamerScript != null && gamerScript.MotivationHandler != null) {
+            if(gamerScript != null) {
                 //get back info for gamer from scene
-                motivation = gamerScript.MotivationHandler.motivation;
-                maxMotivation = gamerScript.MotivationHandler.maxMotivation;
+                motivation = gamerMotivationScript.motivation;
+                maxMotivation = gamerMotivationScript.maxMotivation;
                 totalMotivation += motivation;
                 totalMaxMotivation += totalMaxMotivation;
             }

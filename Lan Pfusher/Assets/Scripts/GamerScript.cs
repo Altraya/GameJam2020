@@ -14,21 +14,15 @@ public class GamerScript : MonoBehaviour
 
     public bool repaired;
 
-    public TypeOfGamer typeOfGamer;
+    public TypeOfGamer TypeOfGamer;
 
-    public GamerMotivationScript MotivationHandler { get; set; }
-
-    public GamerScript()
-    {
-        MotivationHandler = new GamerMotivationScript(this);
-    }
     // Start is called before the first frame update
     void Start()
     {
-        
+
         errorType = -1;
         repairLevel = 0;
-        typeOfGamer = RandomlyChooseGamerType();
+        //TypeOfGamer = RandomlyChooseGamerType();
     }
 
     // Update is called once per frame
