@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class RandomEventHandler : MonoBehaviour
 {
 
     private List<GameObject> gamers;
+    public int TimeRampupDifficultyIncreaseInSecond = 3;
+    public int RealTimerBetweenAction;
+    public int NumberOfSimultaneousProblem = 1;
     private bool once;
 
     // Start is called before the first frame update
@@ -13,10 +17,11 @@ public class RandomEventHandler : MonoBehaviour
     {
         try
         {
+            RealTimerBetweenAction = TimeRampupDifficultyIncreaseInSecond;
             gamers = new List<GameObject>();
             gamers.AddRange(GameObject.FindGameObjectsWithTag("GamerPNJ"));
             once = true;
-
+            StartCoroutine(RandomlyCallProblemsEvent());
         }
         catch (System.Exception e)
         {
@@ -28,17 +33,68 @@ public class RandomEventHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        
+    }
+
+    //Randomly select one error and activate it on selected player in parameter
+    void CallProblemsEvent(GamerScript gamerScript)
+    {
+        int eventTypeNumber = Random.Range(0, 4); //we coded 5 differents type of event
+        if (gamerScript.errorType == -1)
         {
-            foreach (GameObject go in gamers)
-            {
-                var gamerScript = go.GetComponent(typeof(GamerScript)) as GamerScript;
-                if (gamerScript.errorType == -1)
-                {
-                    gamerScript.Event(i);
-                }
-            }
-            i++;
+            gamerScript.Event(eventTypeNumber); //others things like animation and inventory are handled with animation....
         }
+    }
+
+    IEnumerator RandomlyCallProblemsEvent()
+    {
+        while (true)
+        {
+            //each TimeRampupDifficultyIncrease (for example 15sec), difficulty increase
+            yield return new WaitForSeconds(RealTimerBetweenAction);
+
+            //increase difficulty
+            if (NumberOfSimultaneousProblem < gamers.Count)
+            {
+                RealTimerBetweenAction -= TimeRampupDifficultyIncreaseInSecond; //here we will decrease time between events (so difficulty increase)
+                NumberOfSimultaneousProblem++; //also increase number of simultaneous problems
+            }
+
+            //only get gamers whom have not any error yet
+            List<GamerScript> listOfGamersWithoutErrors = GetAvailableGamersWithoutErrors(gamers);
+
+            //randomly select player without error in this list
+            for(int i = 0; i < NumberOfSimultaneousProblem; i++)
+            {
+                if(listOfGamersWithoutErrors.Any()) //if we have free players without errors
+                {
+                    //choose one of them
+                    int randomIndexForGamer = Random.Range(0, (listOfGamersWithoutErrors.Count-1));
+
+                    CallProblemsEvent(listOfGamersWithoutErrors[randomIndexForGamer]);
+                    //remove it from our watcher list 
+                    listOfGamersWithoutErrors.RemoveAt(randomIndexForGamer);
+                    
+                }
+                
+            }
+                    
+        }
+    }
+
+    //only get gamers whom have not any error yet
+    private List<GamerScript> GetAvailableGamersWithoutErrors(List<GameObject> gamersSourceObjectsList)
+    {
+        List<GamerScript> availableGamersWithoutErrors = new List<GamerScript>();
+
+        foreach(GameObject currentGamerGameObject in gamersSourceObjectsList)
+        {
+            var currentGamerScript = currentGamerGameObject.GetComponent(typeof(GamerScript)) as GamerScript;
+            if(currentGamerScript.errorType == -1)
+            {
+                availableGamersWithoutErrors.Add(currentGamerScript);
+            }
+        }
+        return availableGamersWithoutErrors;
     }
 }

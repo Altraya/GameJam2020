@@ -20,7 +20,7 @@ public class GamerScript : MonoBehaviour
     void Start()
     {
 
-        errorType = -1;
+        errorType = -1; //-1 > no error /// 0 to 4 >> errors
         repairLevel = 0;
         //TypeOfGamer = RandomlyChooseGamerType();
     }
