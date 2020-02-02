@@ -11,16 +11,8 @@ public class PickUp_Hiden : MonoBehaviour
     private GameObject objects;
     private SpriteRenderer spriteR;
 
-    StatutPickUp statutPickUp = StatutPickUp.PickUpNotPossible;
     //Public entry
     public Text debugInfo;
-
-    enum StatutPickUp
-    {
-        PickUpNotPossible,
-        PickUpIsPossible,
-        IsPickUp
-    };
 
     // Start is called before the first frame update
     void Start()
@@ -54,23 +46,17 @@ public class PickUp_Hiden : MonoBehaviour
     {
         //Get space key
         bool buttonA = Input.GetKeyDown(KeyCode.Joystick1Button1);//A button from snes
+        //bool buttonA = Input.GetKeyDown("Submit");
 
         #region PickUp
         //Action for PickUp event
-        if (statutPickUp == StatutPickUp.PickUpIsPossible && buttonA == true)
+        if (buttonA == true)
         {
-            //PickUp enabled
-            statutPickUp = StatutPickUp.IsPickUp;
-            Destroy(currentObject);
             spriteR = currentObject.GetComponent<SpriteRenderer>();//myFirstImage;
-            statutPickUp = StatutPickUp.PickUpNotPossible;
-            Inventory.addObjectInInventory(spriteR.sprite.name);
-        }
-
-        else if (statutPickUp == StatutPickUp.IsPickUp && buttonA == true)
-        {
-            //PickUp disabled
-            statutPickUp = StatutPickUp.PickUpIsPossible;
+            if(Inventory.addObjectInInventory(spriteR.sprite.name) == false)
+            {
+                SoundEffectsHelper.Instance.MakeSoundEffect_Non();
+            }
         }
         #endregion
         #region Drop
@@ -99,24 +85,20 @@ public class PickUp_Hiden : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("PickUp"))
         {
-            statutPickUp = StatutPickUp.PickUpIsPossible;
             currentObject = collision.gameObject;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag.Equals("PickUp"))
-        {
-            statutPickUp = StatutPickUp.PickUpNotPossible;
-        }
+ 
     }
 
     private void displayInfoDebug()
     {
         try
         {
-            debugInfo.text = statutPickUp.ToString() + "\n" + Inventory.displayInfoInventory() + "\nTotal Item: " + Inventory.getInventoryAllQuantity() + "\nCurrent Item: " + Inventory.currentItem() + " --> " + Inventory.getInventoryQuantity(Inventory.currentItem());
+            debugInfo.text = Inventory.displayInfoInventory() + "\nTotal Item: " + Inventory.getInventoryAllQuantity() + "\nCurrent Item: " + Inventory.currentItem() + " --> " + Inventory.getInventoryQuantity(Inventory.currentItem());
         }
         catch { }
     }
