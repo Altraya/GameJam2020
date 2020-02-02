@@ -62,14 +62,11 @@ public static class Inventory
 
     public static int getInventoryQuantity(string name)
     {
-        if(inventory.Count != 0)
-        {
-            return inventory[name];
-        }
-        else
+        if (name == "")
         {
             return 0;
         }
+        return inventory[name];
     }
 
     public static int getIndex(string name)
