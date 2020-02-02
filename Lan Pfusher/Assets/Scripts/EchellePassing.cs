@@ -32,7 +32,7 @@ public class EchellePassing : MonoBehaviour
         if(col.gameObject.name == "Player"){
             if(Camera.current != null)
             {
-                SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_Escalier);
+                //SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_Escalier);
                 var dummyObjectDestPosition = DestinationToTp.gameObject.transform.position;
                 col.gameObject.transform.position = dummyObjectDestPosition;
                 var lastActiveCamera = Camera.current.gameObject;
