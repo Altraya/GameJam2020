@@ -10,6 +10,7 @@ public class Button : MonoBehaviour
     public void play()
     {
         //SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_ValiderTouche);
+        //SceneManager.UnloadScene("Title_menu");
         SceneManager.LoadScene("Game");
     }
 
@@ -21,6 +22,7 @@ public class Button : MonoBehaviour
 
     public void leave()
     {
+        //SceneManager.UnloadScene("Game");
         SceneManager.LoadScene("Title_menu");
     }
     public void resume()
