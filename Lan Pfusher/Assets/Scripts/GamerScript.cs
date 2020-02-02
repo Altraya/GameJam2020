@@ -12,39 +12,56 @@ public class GamerScript : MonoBehaviour
 
     public bool isrepairing;
 
+    public bool repaired;
+
+    public TypeOfGamer typeOfGamer;
+
+    public GamerMotivationScript MotivationHandler;
+
     // Start is called before the first frame update
     void Start()
     {
+        MotivationHandler = new GamerMotivationScript(this);
         errorType = -1;
         repairLevel = 0;
+        typeOfGamer = RandomlyChooseGamerType();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(isrepairing)
-        {
-            repairLevel++;
 
-        }
-        if (repairLevel >= 1000)
-        {
-            repairLevel = 0;
-            isrepairing = false;
-            animator.SetInteger("ErrorType", -1);
-            animator.SetBool("Repairing", false);
-        }
     }
 
-    public void RandomEvent()
+
+    public void Event(int errorID)
     {
-        int random = 0;
-        switch(random)
-        {
-            case 0:
-                errorType = 0;
-                animator.SetInteger("ErrorType", 0);
-                break;
+
+        errorType = errorID;
+        animator.SetInteger("ErrorID", errorID);
+    }
+
+    public void RepairFinished()
+    {
+        repairLevel = 0;
+        isrepairing = false;
+        Inventory.removeObjectInInventory(Inventory.getName(errorType));
+        errorType = -1;
+        animator.SetInteger("ErrorID", -1);
+        animator.SetBool("Repairing", false);
+    }
+
+    TypeOfGamer RandomlyChooseGamerType(){
+        int random = Random.Range(0, 9);
+        if(random <= 6)
+        { //60%
+            return TypeOfGamer.NORMAL;
+        }else if(random > 6 && random < 7)
+        { //10%
+            return TypeOfGamer.CHILL;
+        }else 
+        { //30%
+            return TypeOfGamer.DECK;
         }
     }
 
@@ -62,7 +79,10 @@ public class GamerScript : MonoBehaviour
         }
 
     }
+}
 
-
-    
+public enum TypeOfGamer {
+    CHILL,
+    DECK,
+    NORMAL
 }
