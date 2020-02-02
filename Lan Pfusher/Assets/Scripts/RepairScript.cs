@@ -23,7 +23,7 @@ public class RepairScript : MonoBehaviour
             int errorType = gs.errorType;
             if (errorType >= 0)
             {
-                if (Inventory.getInventoryQuantity(Inventory.getName(errorType)) > 0)
+                if (Inventory.getIndex(Inventory.currentItem()) == errorType && Inventory.getInventoryQuantity(Inventory.currentItem()) > 0)
                 {
                     if (Input.GetKey(KeyCode.Joystick1Button1))
                     {
