@@ -4,21 +4,25 @@ using UnityEngine;
 
 public class GamerMotivationScript : MonoBehaviour
 {
-    private GamerScript gamerRelatedScript;
     public float maxMotivation;
     public float motivation;
-    public int coeff;
-
-    public GamerMotivationScript(GamerScript gamerRelatedScript)
+    private int coeff;
+    private TypeOfGamer typeOfGamer;
+    public TypeOfGamer TypeOfGamer
     {
-        this.gamerRelatedScript = gamerRelatedScript;
+        get { return typeOfGamer; }   // get method
+        set {
+            typeOfGamer = value;
+            GetCoefByTypeOfGamer();
+        }  // set method
     }
+
     // Start is called before the first frame update
     void Start()
     {
         maxMotivation = 100;
         motivation = maxMotivation;
-        GetCoefByTypeOfGamer();
+        //GetCoefByTypeOfGamer();
         StartCoroutine(DecreaseGamerMotivation());
     }
 
@@ -31,12 +35,19 @@ public class GamerMotivationScript : MonoBehaviour
     IEnumerator DecreaseGamerMotivation(){
         while(true){
             yield return new WaitForSeconds(1);
-            motivation-=coeff;
-        }
-        
+            if (motivation > 0)
+            {
+                motivation -= coeff;
+            }
+            else
+            {
+                motivation = 0;
+            }
+        }       
     }
+
     void GetCoefByTypeOfGamer() {
-        switch(gamerRelatedScript.typeOfGamer){
+        switch(this.TypeOfGamer){
             case TypeOfGamer.CHILL:
                 coeff=1;
             break;
