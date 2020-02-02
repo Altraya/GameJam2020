@@ -35092,6 +35092,8 @@ MonoBehaviour:
   SoundEffect_Non: {fileID: 8300000, guid: 020aa16277bbbbd4992cc54456436fb5, type: 3}
   SoundEffect_ChangementObjet: {fileID: 8300000, guid: 51f524463f841704d81aeb938cf0e2bb,
     type: 3}
+  SoundEffect_ValiderTouche: {fileID: 8300000, guid: d4ad80b271d603547a359394d710ca96,
+    type: 3}
   SoundEffect_ChangementTouche: {fileID: 8300000, guid: 61a6316f14d03c14a94e67d572befac1,
     type: 3}
   SoundEffect_Enervement: {fileID: 8300000, guid: f0548cdd5e4b22546aeb5d04e50a61d2,
