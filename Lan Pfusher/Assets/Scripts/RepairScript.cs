@@ -30,7 +30,10 @@ public class RepairScript : MonoBehaviour
             {
                 if (Inventory.getIndex(Inventory.currentItem()) == errorType && Inventory.getInventoryQuantity(Inventory.currentItem()) > 0)
                 {
-                    infoText.gameObject.SetActive(true);
+                    if (infoText != null)
+                    {
+                        infoText.gameObject.SetActive(true);
+                    }
 
                     if (Input.GetKey(KeyCode.Joystick1Button1) || Input.GetKey("space"))
                     {
@@ -47,14 +50,20 @@ public class RepairScript : MonoBehaviour
                 {
                     gs.Repairing(false);
                     animator.SetBool("IsRepearing", false);
-                    infoText.gameObject.SetActive(false);
+                    if (infoText != null)
+                    {
+                        infoText.gameObject.SetActive(false);
+                    }
                 }
             }
             else
             {
                 gs.Repairing(false);
                 animator.SetBool("IsRepearing", false);
-                infoText.gameObject.SetActive(false);
+                if (infoText != null)
+                {
+                    infoText.gameObject.SetActive(false);
+                }
             }
         }
 

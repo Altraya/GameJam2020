@@ -14,6 +14,16 @@ public class PickUp_Hiden : MonoBehaviour
     //Public entry
     public Text debugInfo;
 
+    StatutPickUp statutPickUp = StatutPickUp.PickUpNotPossible;
+
+    enum StatutPickUp
+    {
+        PickUpNotPossible,
+        PickUpIsPossible,
+        IsPickUp
+    };
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,7 +62,7 @@ public class PickUp_Hiden : MonoBehaviour
 
         #region PickUp
         //Action for PickUp event
-        if (buttonA == true)
+        if (buttonA == true && statutPickUp == StatutPickUp.PickUpIsPossible )
         {
             //spriteR = currentObject.GetComponent<SpriteRenderer>();//myFirstImage;
             if(Inventory.addObjectInInventory(currentObject.name) == false)
@@ -97,12 +107,14 @@ public class PickUp_Hiden : MonoBehaviour
         if (collision.gameObject.tag.Equals("PickUp"))
         {
             currentObject = collision.gameObject;
+            statutPickUp = StatutPickUp.PickUpIsPossible;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
- 
+        statutPickUp = StatutPickUp.PickUpNotPossible;
+
     }
 
     private void displayInfoDebug()
