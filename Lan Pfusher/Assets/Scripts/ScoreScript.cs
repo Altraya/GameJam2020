@@ -21,7 +21,7 @@ public class ScoreScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Score = (int)(Time.frameCount - StartTime);
+        Score = (int)(Time.time - StartTime);
         ScoreText.text = Score.ToString();
     }
 }
