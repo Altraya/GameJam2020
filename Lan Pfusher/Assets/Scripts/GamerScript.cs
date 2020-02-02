@@ -47,6 +47,9 @@ public class GamerScript : MonoBehaviour
         errorType = -1;
         animator.SetInteger("ErrorID", -1);
         animator.SetBool("Repairing", false);
+
+        GamerMotivationScript gs = (this.gameObject.GetComponent(typeof(GamerMotivationScript)) as GamerMotivationScript);
+        gs.HandleRepairFinished();
     }
 
     TypeOfGamer RandomlyChooseGamerType(){
