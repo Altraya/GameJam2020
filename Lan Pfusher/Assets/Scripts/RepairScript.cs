@@ -16,7 +16,7 @@ public class RepairScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animator.SetBool("IsRepearing", false);
+        animator.SetBool("IsRepairing", false);
     }
 
     // Update is called once per frame
@@ -38,18 +38,18 @@ public class RepairScript : MonoBehaviour
                     if (Input.GetKey(KeyCode.Joystick1Button1) || Input.GetKey("space"))
                     {
                         gs.Repairing(true);
-                        animator.SetBool("IsRepearing", true);
+                        animator.SetBool("IsRepairing", true);
                     }
                     else
                     {
                         gs.Repairing(false);
-                        animator.SetBool("IsRepearing", false);
+                        animator.SetBool("IsRepairing", false);
                     }
                 }
                 else
                 {
                     gs.Repairing(false);
-                    animator.SetBool("IsRepearing", false);
+                    animator.SetBool("IsRepairing", false);
                     if (infoText != null)
                     {
                         infoText.gameObject.SetActive(false);
@@ -59,7 +59,7 @@ public class RepairScript : MonoBehaviour
             else
             {
                 gs.Repairing(false);
-                animator.SetBool("IsRepearing", false);
+                animator.SetBool("IsRepairing", false);
                 if (infoText != null)
                 {
                     infoText.gameObject.SetActive(false);

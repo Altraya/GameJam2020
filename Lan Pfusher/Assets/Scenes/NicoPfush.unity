@@ -121,25 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &51404302 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 642406141716001525, guid: 41d61ab2de64b91459e4edef1118cf98,
-    type: 3}
-  m_PrefabInstance: {fileID: 964917987}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &51404310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 51404302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19dab70a32900ca4498da00be574d215, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  infoText: {fileID: 649946193}
 --- !u!1 &195782945
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,6 +373,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6830f779a7615bb489fd74e4fc61898b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TimeRampupDifficultyIncreaseInSecond: 3
+  TimeBetweenIncreasedOfSimultaneousProblems: 15
+  RealTimerBetweenAction: 0
+  NumberOfSimultaneousProblem: 1
 --- !u!4 &541923730
 Transform:
   m_ObjectHideFlags: 0
@@ -628,16 +613,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MainCaracter_0 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 642406141716001525, guid: 41d61ab2de64b91459e4edef1118cf98,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 642406141716001525, guid: 41d61ab2de64b91459e4edef1118cf98,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41d61ab2de64b91459e4edef1118cf98, type: 3}
@@ -1303,17 +1278,17 @@ PrefabInstance:
     - target: {fileID: 5880002015358576222, guid: abba7ef4220e24c4498a7a9b3efb546f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.35079
+      value: 4.28
       objectReference: {fileID: 0}
     - target: {fileID: 5880002015358576222, guid: abba7ef4220e24c4498a7a9b3efb546f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.8779525
+      value: 1.21
       objectReference: {fileID: 0}
     - target: {fileID: 5880002015358576222, guid: abba7ef4220e24c4498a7a9b3efb546f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.9765625
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5880002015358576222, guid: abba7ef4220e24c4498a7a9b3efb546f,
         type: 3}
