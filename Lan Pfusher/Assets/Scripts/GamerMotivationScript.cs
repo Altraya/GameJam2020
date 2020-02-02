@@ -84,7 +84,12 @@ public class GamerMotivationScript : MonoBehaviour
             yield return new WaitForSeconds(1);
             if (motivation > 0)
             {
-                motivation -= coeffDecreaseMotivation;
+                var currentGamerScript = this.gameObject.GetComponent(typeof(GamerScript)) as GamerScript;
+                //didn't loose satisfaction if he is not in error
+                if (currentGamerScript.errorType != -1)
+                {
+                    motivation -= coeffDecreaseMotivation;
+                }   
             }
             else
             {

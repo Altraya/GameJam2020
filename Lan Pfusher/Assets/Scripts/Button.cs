@@ -19,6 +19,10 @@ public class Button : MonoBehaviour
         Application.Quit();
     }
 
+    public void leave()
+    {
+        SceneManager.LoadScene("Title_menu");
+    }
     public void resume()
     {
         this.GetComponentInParent<Canvas>().enabled = false;
