@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1439644436116789821}
   - component: {fileID: 1439644436116789820}
+  - component: {fileID: 6269613446606582459}
   - component: {fileID: 1439644436116789823}
   - component: {fileID: 1439644436116789822}
   - component: {fileID: 1439644436116789816}
@@ -50,8 +51,21 @@ MonoBehaviour:
   errorType: 0
   isrepairing: 0
   repaired: 0
-  typeOfGamer: 0
-  MotivationHandler: {fileID: 0}
+--- !u!114 &6269613446606582459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439644436116789811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e99eb6974fe2f449beadeb940295b97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxMotivation: 100
+  motivation: 100
+  coeff: 0
 --- !u!212 &1439644436116789823
 SpriteRenderer:
   m_ObjectHideFlags: 0
