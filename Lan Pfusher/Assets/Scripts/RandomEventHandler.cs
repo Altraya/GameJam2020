@@ -7,7 +7,8 @@ public class RandomEventHandler : MonoBehaviour
 {
 
     private List<GameObject> gamers;
-    public int TimeRampupDifficultyIncreaseInSecond = 3;
+    public int TimeRampupDifficultyIncreaseInSecond = 3; //time between problems appear
+    public int TimeBetweenIncreasedOfSimultaneousProblems = 15; //default 15sec
     public int RealTimerBetweenAction;
     public int NumberOfSimultaneousProblem = 1;
     private bool once;
@@ -22,6 +23,7 @@ public class RandomEventHandler : MonoBehaviour
             gamers.AddRange(GameObject.FindGameObjectsWithTag("GamerPNJ"));
             once = true;
             StartCoroutine(RandomlyCallProblemsEvent());
+            StartCoroutine(IncreaseNumberOfSimultaneousProblem());
         }
         catch (System.Exception e)
         {
@@ -46,6 +48,19 @@ public class RandomEventHandler : MonoBehaviour
         }
     }
 
+    //increase individually the number of problem which could happen simultaneously
+    IEnumerator IncreaseNumberOfSimultaneousProblem()
+    {
+        
+        if (NumberOfSimultaneousProblem < gamers.Count)
+        {
+            yield return new WaitForSeconds(TimeBetweenIncreasedOfSimultaneousProblems);    
+            NumberOfSimultaneousProblem++; //also increase number of simultaneous problems
+        }
+    }
+
+    //increase speed of error appearing
+    //callErrors and handling them
     IEnumerator RandomlyCallProblemsEvent()
     {
         while (true)
@@ -54,11 +69,9 @@ public class RandomEventHandler : MonoBehaviour
             yield return new WaitForSeconds(RealTimerBetweenAction);
 
             //increase difficulty
-            if (NumberOfSimultaneousProblem < gamers.Count)
-            {
-                RealTimerBetweenAction -= TimeRampupDifficultyIncreaseInSecond; //here we will decrease time between events (so difficulty increase)
-                NumberOfSimultaneousProblem++; //also increase number of simultaneous problems
-            }
+            
+            RealTimerBetweenAction -= TimeRampupDifficultyIncreaseInSecond; //here we will decrease time between events (so difficulty increase)               
+        
 
             //only get gamers whom have not any error yet
             List<GamerScript> listOfGamersWithoutErrors = GetAvailableGamersWithoutErrors(gamers);
