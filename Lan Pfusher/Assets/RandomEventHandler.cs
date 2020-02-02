@@ -23,21 +23,22 @@ public class RandomEventHandler : MonoBehaviour
             
         }
     }
+        int i = 0;
 
     // Update is called once per frame
     void Update()
     {
-        if(once)
+        if (Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             foreach (GameObject go in gamers)
             {
                 var gamerScript = go.GetComponent(typeof(GamerScript)) as GamerScript;
                 if (gamerScript.errorType == -1)
                 {
-                    gamerScript.RandomEvent();
+                    gamerScript.Event(i);
                 }
             }
-            once = false;
+            i++;
         }
     }
 }

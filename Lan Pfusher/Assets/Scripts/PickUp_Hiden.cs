@@ -34,13 +34,19 @@ public class PickUp_Hiden : MonoBehaviour
         Inventory.addObjectInInventory("Casque");
         Inventory.addObjectInInventory("Tour");
         Inventory.addObjectInInventory("Cable réseau");
-        Inventory.addObjectInInventory("Switch");
+        //Inventory.addObjectInInventory("Switch");
 
         //Add object
         Inventory.addObjectInInventory("Clavier");
         Inventory.addObjectInInventory("Casque");
         Inventory.addObjectInInventory("Casque");
         Inventory.addObjectInInventory("Switch");
+        Inventory.addObjectInInventory("Clavier");
+        Inventory.addObjectInInventory("Souris");
+        Inventory.addObjectInInventory("Casque");
+        Inventory.addObjectInInventory("Tour");
+        Inventory.addObjectInInventory("Cable réseau");
+        //Inventory.addObjectInInventory("Switch");
     }
 
     // Update is called once per frame

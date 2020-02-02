@@ -60,14 +60,7 @@ public class PlayerPlatformerController : MonoBehaviour
             debugText.text = moveHorizontal.ToString();
         }
         catch { }
-        if (Mathf.Abs(moveHorizontal) >= 0.5f)
-        {
-            anim.SetTrigger("Move");
-        }
-        else
-        {
-            anim.SetTrigger("Idle");
-        }
+
         //debugText.text = rb2d.velocity.x.ToString();
     }
 

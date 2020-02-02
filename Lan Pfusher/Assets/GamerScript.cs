@@ -12,6 +12,8 @@ public class GamerScript : MonoBehaviour
 
     public bool isrepairing;
 
+    public bool repaired;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,30 +24,23 @@ public class GamerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isrepairing)
-        {
-            repairLevel++;
 
-        }
-        if (repairLevel >= 1000)
-        {
-            repairLevel = 0;
-            isrepairing = false;
-            animator.SetInteger("ErrorType", -1);
-            animator.SetBool("Repairing", false);
-        }
     }
 
-    public void RandomEvent()
+    public void Event(int errorID)
     {
-        int random = 0;
-        switch(random)
-        {
-            case 0:
-                errorType = 0;
-                animator.SetInteger("ErrorType", 0);
-                break;
-        }
+        errorType = errorID;
+        animator.SetInteger("ErrorID", errorID);
+    }
+
+    public void RepairFinished()
+    {
+        repairLevel = 0;
+        isrepairing = false;
+        Inventory.removeObjectInInventory(Inventory.getName(errorType));
+        errorType = -1;
+        animator.SetInteger("ErrorID", -1);
+        animator.SetBool("Repairing", false);
     }
 
     public void Repairing(bool repair)

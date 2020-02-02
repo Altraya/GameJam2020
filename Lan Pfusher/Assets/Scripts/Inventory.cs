@@ -7,7 +7,7 @@ using UnityEngine;
 public static class Inventory
 {
     //Public
-    public static int maxInventory = 3;
+    public static int maxInventory = 10;
     //Private
     private static Dictionary<string, int> inventory = new Dictionary<string, int>();//Sprite-quantity
     private static string currentElement;
