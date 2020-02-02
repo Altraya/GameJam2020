@@ -57,7 +57,7 @@ public class PickUp_Hiden : MonoBehaviour
             //spriteR = currentObject.GetComponent<SpriteRenderer>();//myFirstImage;
             if(Inventory.addObjectInInventory(currentObject.name) == false)
             {
-                SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_PrendreObjet);
+                //SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_PrendreObjet);
             }
         }
         #endregion
@@ -68,7 +68,7 @@ public class PickUp_Hiden : MonoBehaviour
             if (Inventory.getInventoryQuantity(Inventory.currentItem()) >= 1)
             {
                 Inventory.removeObjectInInventory(Inventory.currentItem());
-                SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_JeterObjet);
+                //SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_JeterObjet);
             }
         }
         #endregion
@@ -78,13 +78,13 @@ public class PickUp_Hiden : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Joystick1Button5))//R button from snes
             {
-                SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_ChangementObjet);
+                //SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_ChangementObjet);
                 Inventory.switchObject(true);
             }
             else if (Input.GetKeyDown(KeyCode.Joystick1Button4))//L button from snes
             {
                 Inventory.switchObject(false);
-                SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_ChangementObjet);
+                //SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_ChangementObjet);
             }
         }
         #endregion
