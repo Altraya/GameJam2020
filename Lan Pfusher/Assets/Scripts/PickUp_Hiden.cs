@@ -55,7 +55,7 @@ public class PickUp_Hiden : MonoBehaviour
             //spriteR = currentObject.GetComponent<SpriteRenderer>();//myFirstImage;
             if(Inventory.addObjectInInventory(currentObject.name) == false)
             {
-                SoundEffectsHelper.Instance.MakeSoundEffect_Non();
+                SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_PrendreObjet);
             }
         }
         #endregion
