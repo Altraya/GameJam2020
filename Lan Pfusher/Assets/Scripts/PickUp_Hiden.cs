@@ -87,13 +87,13 @@ public class PickUp_Hiden : MonoBehaviour
         //Action for PickUp event
         if (Inventory.getInventoryAllQuantity() > 1)
         {
-            if (Input.GetKeyDown(KeyCode.Joystick1Button5) || Input.GetKeyDown(KeyCode.LeftAlt))//R button from snes
+            if (Input.GetKeyDown(KeyCode.Joystick1Button5) || Input.GetKeyDown(KeyCode.UpArrow))//R button from snes
             {
                 Inventory.switchObject(true);
                 if (soundOn)
                     SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_ChangementObjet);
             }
-            else if (Input.GetKeyDown(KeyCode.Joystick1Button4) || Input.GetKeyDown(KeyCode.LeftControl))//L button from snes
+            else if (Input.GetKeyDown(KeyCode.Joystick1Button4) || Input.GetKeyDown(KeyCode.DownArrow))//L button from snes
             {
                 Inventory.switchObject(false);
                 if (soundOn)
