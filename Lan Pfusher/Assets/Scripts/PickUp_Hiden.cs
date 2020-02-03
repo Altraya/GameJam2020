@@ -42,6 +42,7 @@ public class PickUp_Hiden : MonoBehaviour
         //Inventory.addObjectInInventory("Switch");
 
         //Add object
+        /*
         Inventory.addObjectInInventory("Clavier");
         Inventory.addObjectInInventory("Casque");
         Inventory.addObjectInInventory("Casque");
@@ -51,7 +52,7 @@ public class PickUp_Hiden : MonoBehaviour
         Inventory.addObjectInInventory("Casque");
         Inventory.addObjectInInventory("Tour");
         Inventory.addObjectInInventory("Cable réseau");
-        //Inventory.addObjectInInventory("Switch");
+        */
 
         Inventory.ClearInventory();
     }
@@ -65,6 +66,9 @@ public class PickUp_Hiden : MonoBehaviour
         {
             //spriteR = currentObject.GetComponent<SpriteRenderer>();//myFirstImage;
             if(Inventory.addObjectInInventory(currentObject.name) == false)
+            {
+            }
+            else
             {
                 if (soundOn)
                     SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_PrendreObjet);
