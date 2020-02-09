@@ -34,9 +34,18 @@ public class GamerScript : MonoBehaviour
 
     public void Event(int errorID)
     {
-
         errorType = errorID;
         animator.SetInteger("ErrorID", errorID);
+        if(errorID == 0)
+            SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_PanneClavier);
+        else if (errorID == 1)
+            SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_PanneSouris);
+        else if (errorID == 2)
+            SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_PanneCasque);
+        else if (errorID == 3)
+            SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_PanneTour);
+        else if (errorID == 4)
+            SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_PanneCable);
     }
 
     public void RepairFinished()

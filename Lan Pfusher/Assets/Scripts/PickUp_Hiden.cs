@@ -14,6 +14,9 @@ public class PickUp_Hiden : MonoBehaviour
     //Public entry
     public Text debugInfo;
 
+    //Sound control
+    bool soundOn = true;
+
     StatutPickUp statutPickUp = StatutPickUp.PickUpNotPossible;
 
     enum StatutPickUp
@@ -39,6 +42,7 @@ public class PickUp_Hiden : MonoBehaviour
         //Inventory.addObjectInInventory("Switch");
 
         //Add object
+        /*
         Inventory.addObjectInInventory("Clavier");
         Inventory.addObjectInInventory("Casque");
         Inventory.addObjectInInventory("Casque");
@@ -48,7 +52,7 @@ public class PickUp_Hiden : MonoBehaviour
         Inventory.addObjectInInventory("Casque");
         Inventory.addObjectInInventory("Tour");
         Inventory.addObjectInInventory("Cable réseau");
-        //Inventory.addObjectInInventory("Switch");
+        */
 
         Inventory.ClearInventory();
     }
@@ -62,12 +66,16 @@ public class PickUp_Hiden : MonoBehaviour
 
         #region PickUp
         //Action for PickUp event
-        if (buttonA == true && statutPickUp == StatutPickUp.PickUpIsPossible )
+        if ((Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.Space)) && statutPickUp == StatutPickUp.PickUpIsPossible )
         {
             //spriteR = currentObject.GetComponent<SpriteRenderer>();//myFirstImage;
             if(Inventory.addObjectInInventory(currentObject.name) == false)
             {
-                //SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_PrendreObjet);
+            }
+            else
+            {
+                if (soundOn)
+                    SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_PrendreObjet);
             }
         }
         #endregion
@@ -78,7 +86,8 @@ public class PickUp_Hiden : MonoBehaviour
             if (Inventory.getInventoryQuantity(Inventory.currentItem()) >= 1)
             {
                 Inventory.removeObjectInInventory(Inventory.currentItem());
-                //SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_JeterObjet);
+                if(soundOn)
+                    SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_JeterObjet);
             }
         }
         #endregion
@@ -86,15 +95,17 @@ public class PickUp_Hiden : MonoBehaviour
         //Action for PickUp event
         if (Inventory.getInventoryAllQuantity() > 1)
         {
-            if (Input.GetKeyDown(KeyCode.Joystick1Button5))//R button from snes
+            if (Input.GetKeyDown(KeyCode.Joystick1Button5) || Input.GetKeyDown(KeyCode.UpArrow))//R button from snes
             {
-                //SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_ChangementObjet);
                 Inventory.switchObject(true);
+                if (soundOn)
+                    SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_ChangementObjet);
             }
-            else if (Input.GetKeyDown(KeyCode.Joystick1Button4))//L button from snes
+            else if (Input.GetKeyDown(KeyCode.Joystick1Button4) || Input.GetKeyDown(KeyCode.DownArrow))//L button from snes
             {
                 Inventory.switchObject(false);
-                //SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_ChangementObjet);
+                if (soundOn)
+                    SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_ChangementObjet);
             }
         }
         #endregion
