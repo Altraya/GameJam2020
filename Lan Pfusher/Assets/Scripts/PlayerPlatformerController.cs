@@ -39,6 +39,10 @@ public class PlayerPlatformerController : MonoBehaviour
     {
         //Store the current horizontal input in the float moveHorizontal.
         float moveHorizontal = Input.GetAxis("Horizontal");
+        if(Math.Abs(moveHorizontal) >= 0.9f)
+        {
+            moveHorizontal = Math.Sign(moveHorizontal) * 0.9f;
+        }
         animator.SetFloat("Speed", Math.Abs(moveHorizontal));
 
         //Store the current vertical input in the float moveVertical.

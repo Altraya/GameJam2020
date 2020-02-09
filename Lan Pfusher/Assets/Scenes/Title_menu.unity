@@ -211,6 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 100
   startmove: {x: 0, y: 0, z: 0}
+  scriptText: {fileID: 0}
 --- !u!114 &307587784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,6 +226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1000
   startmove: {x: -1000, y: 0, z: 0}
+  scriptText: {fileID: 0}
 --- !u!1 &412433158
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,7 +531,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1800575249}
   m_LocalRotation: {x: -0.02302695, y: 0.0035761213, z: -0.073385514, w: 0.9970314}
-  m_LocalPosition: {x: 0, y: 0, z: -3}
+  m_LocalPosition: {x: 0, y: 0, z: -5}
   m_LocalScale: {x: 59.39527, y: 93.369484, z: 59.39527}
   m_Children: []
   m_Father: {fileID: 412433162}
@@ -537,8 +539,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -2.6020002, y: 0.60300004, z: -8.433001}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 478, y: -89}
-  m_SizeDelta: {x: 6.41, y: 3.26}
+  m_AnchoredPosition: {x: 518, y: -84}
+  m_SizeDelta: {x: 8.5, y: 4.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1800575251
 MonoBehaviour:
@@ -590,6 +592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1000
   startmove: {x: 1000, y: 0, z: 0}
+  scriptText: {fileID: 0}
 --- !u!1 &2086740829
 GameObject:
   m_ObjectHideFlags: 0

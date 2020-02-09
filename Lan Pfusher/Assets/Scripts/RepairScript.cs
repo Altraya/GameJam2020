@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+
 
 public class RepairScript : MonoBehaviour
 {
@@ -83,7 +85,14 @@ public class RepairScript : MonoBehaviour
         if (collision.gameObject.tag.Equals("GamerPNJ"))
         {
             isRepairPossible = false;
-            infoText.gameObject.SetActive(false);
+            try
+            {
+                infoText.gameObject.SetActive(false);
+            }catch(NullReferenceException e)
+            {
+
+            }
+            
         }
     }
 

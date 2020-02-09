@@ -11,7 +11,7 @@ public class Button : MonoBehaviour
     {
         //SoundEffectsHelper.Instance.MakeSoundEffect(SoundEffectsHelper.Instance.SoundEffect_ValiderTouche);
         //SceneManager.UnloadScene("Title_menu");
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("intro");
     }
 
     public void End()

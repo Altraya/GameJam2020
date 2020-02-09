@@ -57,7 +57,7 @@ public class PickUp_Hiden : MonoBehaviour
     void Update()
     {
         //Get space key
-        bool buttonA = Input.GetKeyDown(KeyCode.Joystick1Button1);//A button from snes
+        bool buttonA = Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.Space);//A button from snes
         //bool buttonA = Input.GetKeyDown("Submit");
 
         #region PickUp
@@ -73,7 +73,7 @@ public class PickUp_Hiden : MonoBehaviour
         #endregion
         #region Drop
         //Action for PickUp event
-        if (Input.GetKeyUp(KeyCode.Joystick1Button0))//X button from snes
+        if (Input.GetKeyUp(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Backspace))//X button from snes
         {
             if (Inventory.getInventoryQuantity(Inventory.currentItem()) >= 1)
             {

@@ -9521,9 +9521,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6830f779a7615bb489fd74e4fc61898b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeRampupDifficultyIncreaseInSecond: 15
+  TimeRampupDifficultyIncreaseInSecond: 30
   TimeBetweenIncreasedOfSimultaneousProblems: 40
-  RealTimerBetweenAction: 5
+  RealTimerBetweenAction: 10
   NumberOfSimultaneousProblem: 1
 --- !u!4 &1107362057
 Transform:
